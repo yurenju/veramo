@@ -271,7 +271,7 @@ export class CredentialIssuerEIP712 implements IAgentPlugin {
     const allTypes = getEthTypesFromInputDoc(presentation, primaryType)
     const types = { ...allTypes }
 
-    const data = JSON.stringify({ domain, types, message })
+    const data = JSON.stringify({ domain, types, message, primaryType })
 
     const signature = await context.agent.keyManagerSign({ keyRef, data, algorithm: 'eth_signTypedData' })
 
